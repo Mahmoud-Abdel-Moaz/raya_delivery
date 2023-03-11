@@ -6,12 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/colors.dart';
 import '../../../../core/compnents.dart';
-import '../../../../core/font.dart';
+import '../../../../core/constants.dart';
 import '../../../../core/local_notification_service.dart';
 import '../../domain/entities/order.dart';
 import '../bloc/order_cubit.dart';
 import '../widgets/order_item_view.dart';
-import 'order_type_view.dart';
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({Key? key}) : super(key: key);
@@ -29,6 +28,8 @@ class _OrderScreenState extends State<OrderScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    setDefaultStatusBar();
+
     OrderCubit orderCubit = OrderCubit.get(context);
     List<Orderr>? orders = orderCubit.orders;
     List<Orderr>? newOrders;
